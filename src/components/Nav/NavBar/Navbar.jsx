@@ -2,10 +2,12 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import StyledNavBar from './StyledNavbar';
 import useLogout from '../../../hooks/useLogout';
+import useAuth from '../../../hooks/useAuth';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const logout = useLogout();
+  const { auth } = useAuth();
 
   const signOut = async () => {
     await logout();
@@ -20,8 +22,8 @@ const Navbar = () => {
       </NavLink>
       <NavLink to="/users">Users</NavLink>
       {location.pathname !== '/login' && (
-        <NavLink to="/logout" onClick={signOut}>
-          Log out
+        <NavLink to={!auth.user ? '/login' : '/logout'} onClick={auth.user ? signOut : null}>
+          {!auth.user ? 'Log in' : 'Log out'}
         </NavLink>
       )}
     </StyledNavBar>

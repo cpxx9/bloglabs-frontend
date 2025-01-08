@@ -3,18 +3,17 @@ import Root from '../routes/Root/Root';
 import NotFound from '../routes/NotFound';
 import { createRoutesFromElements, Route } from 'react-router-dom';
 import Login from './Login/Login';
+import Register from './Register/Register';
 import RequireAuth from '../components/RequireAuth';
-import Users from './Users/Users';
 import PersistLogin from '../components/PersistLogin';
 
 const routesConfig = createRoutesFromElements(
   <Route path="/" element={<MainLayout />}>
     <Route path="login" element={<Login />} />
+    <Route path="register" element={<Register />} />
     <Route element={<PersistLogin />}>
-      <Route element={<RequireAuth />}>
-        <Route path="/" element={<Root />} />
-        <Route path="/users" element={<Users />} />
-      </Route>
+      <Route path="/" element={<Root />} />
+      <Route element={<RequireAuth />}></Route>
     </Route>
     <Route path="*" element={<NotFound />} />
   </Route>,
