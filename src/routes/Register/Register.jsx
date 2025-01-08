@@ -65,7 +65,6 @@ const Register = () => {
           withCredentials: true,
         },
       );
-      console.log(JSON.stringify(res.data));
       setSuccess(true);
     } catch (err) {
       if (!err?.response) {

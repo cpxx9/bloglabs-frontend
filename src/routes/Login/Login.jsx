@@ -1,7 +1,7 @@
 import axios from '../../api/axios';
 import { useEffect, useRef, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import StyledLogin from './StyledLogin';
 import useInput from '../../hooks/useInput';
 import useToggle from '../../hooks/useToggle';
@@ -83,6 +83,9 @@ const Login = () => {
           <label htmlFor="persist">Remeber this device?</label>
         </div>
       </form>
+      <p>
+        No account? <Link to="/register">Sign up</Link>
+      </p>
     </StyledLogin>
   );
 };
