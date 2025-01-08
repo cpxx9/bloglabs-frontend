@@ -20,7 +20,7 @@ const Navbar = () => {
       <NavLink to="/">
         <h1>Home</h1>
       </NavLink>
-      <NavLink to="/users">Users</NavLink>
+      <NavLink to="/announcements">Announcements</NavLink>
       {location.pathname !== '/login' && (
         <NavLink to={!auth.user ? '/login' : '/logout'} onClick={auth.user ? signOut : null}>
           {!auth.user ? 'Log in' : 'Log out'}
