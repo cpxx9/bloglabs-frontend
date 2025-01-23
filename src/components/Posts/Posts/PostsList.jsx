@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import StyledPostsList from './StyledPostsList';
-import User from '../Post/Post';
-import axios from 'axios';
+import Post from '../Post/Post';
+import axios from '../../../api/axios';
 
 const PostsList = () => {
   const [posts, setPosts] = useState();
@@ -37,9 +37,9 @@ const PostsList = () => {
     <StyledPostsList>
       {posts?.length ? (
         <ul>
-          {posts.map((user) => (
+          {posts.map((post) => (
             <li key={uuidv4()}>
-              <User userInfo={user} />
+              <Post postInfo={post} />
             </li>
           ))}
         </ul>
