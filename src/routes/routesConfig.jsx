@@ -13,7 +13,6 @@ const routesConfig = createRoutesFromElements(
     <Route path="register" element={<Register />} />
     <Route element={<PersistLogin />}>
       <Route path="/" element={<Root />} />
-      <Route element={<RequireAuth />}></Route>
     </Route>
     <Route path="*" element={<NotFound />} />
   </Route>,

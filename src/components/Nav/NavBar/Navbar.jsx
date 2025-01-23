@@ -22,8 +22,10 @@ const Navbar = () => {
       </NavLink>
       <NavLink to="/announcements">Announcements</NavLink>
       {location.pathname !== '/login' && (
-        <NavLink to={!auth.user ? '/login' : '/logout'} onClick={auth.user ? signOut : null}>
-          {!auth.user ? 'Log in' : 'Log out'}
+        <NavLink
+          to={!auth.accessToken ? '/login' : '/logout'}
+          onClick={auth.accessToken ? signOut : null}>
+          {!auth.accessToken ? 'Log in' : 'Log out'}
         </NavLink>
       )}
     </StyledNavBar>
