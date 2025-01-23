@@ -16,7 +16,7 @@ const PostsList = () => {
 
     const getPosts = async () => {
       try {
-        const res = await axios.get('/posts', {
+        const res = await axios.get('/posts?published', {
           signal: controller.signal,
         });
         isMounted && setPosts(res.data.data);
