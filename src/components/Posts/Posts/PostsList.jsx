@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 import { v4 as uuidv4 } from 'uuid';
-import StyledUsersList from './StyledUsersList';
-import User from '../User/User';
+import StyledPostsList from './StyledPostsList';
+import User from '../Post/Post';
+import axios from 'axios';
 
-const UsersList = () => {
-  const [users, setUsers] = useState();
-  const axiosPrivate = useAxiosPrivate();
+const PostsList = () => {
+  const [posts, setPosts] = useState();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -15,18 +14,18 @@ const UsersList = () => {
     let isMounted = true;
     const controller = new AbortController();
 
-    const getUsers = async () => {
+    const getPosts = async () => {
       try {
-        const res = await axiosPrivate.get('/users', {
+        const res = await axios.get('/posts', {
           signal: controller.signal,
         });
-        isMounted && setUsers(res.data.data);
+        isMounted && setPosts(res.data.data);
       } catch (err) {
         console.error(err);
         navigate('/login', { state: { from: location }, replace: true });
       }
     };
-    getUsers();
+    getPosts();
 
     return () => {
       isMounted = false;
@@ -35,20 +34,20 @@ const UsersList = () => {
   }, []);
 
   return (
-    <StyledUsersList>
-      {users?.length ? (
+    <StyledPostsList>
+      {posts?.length ? (
         <ul>
-          {users.map((user) => (
+          {posts.map((user) => (
             <li key={uuidv4()}>
               <User userInfo={user} />
             </li>
           ))}
         </ul>
       ) : (
-        <p>No users to display</p>
+        <p>No posts to display</p>
       )}
-    </StyledUsersList>
+    </StyledPostsList>
   );
 };
 
-export default UsersList;
+export default PostsList;
