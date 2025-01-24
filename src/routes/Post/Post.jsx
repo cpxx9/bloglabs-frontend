@@ -3,10 +3,15 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import StyledPost from './StyledPost';
-import { axiosPrivate } from '../../api/axios';
+import axios from '../../api/axios';
+import useAuth from '../../hooks/useAuth';
+import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 
 const Post = () => {
+  const { auth } = useAuth();
   const [post, setPost] = useState({});
+  const [commentContent, setCommentContent] = useState('');
+  const axiosPrivate = useAxiosPrivate();
   const { id } = useParams();
 
   useEffect(() => {
@@ -15,7 +20,7 @@ const Post = () => {
 
     const getPost = async () => {
       try {
-        const res = await axiosPrivate.get(`/posts/${id}`, {
+        const res = await axios.get(`/posts/${id}`, {
           signal: controller.signal,
         });
         isMounted && setPost(res.data.data);
@@ -31,6 +36,25 @@ const Post = () => {
     };
   }, []);
 
+  const onCommentInputChange = (e) => {
+    setCommentContent(e.target.value);
+  };
+
+  const handleNewComment = async (e) => {
+    console.log(auth);
+    e.preventDefault();
+    try {
+      const res = await axiosPrivate.post(
+        '/comments',
+        JSON.stringify({ content: commentContent, postId: id }),
+      );
+      console.log(res);
+      setCommentContent('');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <StyledPost>
       <h4>{post.title}</h4>
@@ -38,20 +62,36 @@ const Post = () => {
       {post?.content && parse(post.content)}
       <br />
       <h4>Comments</h4>
-      <label htmlFor="comment">
-        <textarea name="comment" id="comment" cols="75" rows="2"></textarea>
-      </label>
+      {auth.accessToken ? (
+        <>
+          <label htmlFor="comment">
+            New comment:
+            <br />
+            <textarea
+              onChange={onCommentInputChange}
+              name="comment"
+              id="comment"
+              cols="75"
+              value={commentContent}
+              rows="2"></textarea>
+            <br />
+          </label>
+          <button onClick={handleNewComment}>Post</button>
+        </>
+      ) : (
+        <p>Only members can comment!</p>
+      )}
       {post.comments?.length ? (
         <ul>
-          {post.comments.map((post) => (
+          {post.comments.map((comment) => (
             <li key={uuidv4()}>
-              <h5>{post.comment.author}</h5>
-              <p>{post.comment.content}</p>
+              <h5>{comment.author}</h5>
+              <p>{comment.content}</p>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No post to display</p>
+        <p>No comments to display</p>
       )}
     </StyledPost>
   );
