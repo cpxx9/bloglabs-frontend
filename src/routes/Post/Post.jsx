@@ -38,6 +38,9 @@ const Post = () => {
       {post?.content && parse(post.content)}
       <br />
       <h4>Comments</h4>
+      <label htmlFor="comment">
+        <textarea name="comment" id="comment" cols="75" rows="2"></textarea>
+      </label>
       {post.comments?.length ? (
         <ul>
           {post.comments.map((post) => (
