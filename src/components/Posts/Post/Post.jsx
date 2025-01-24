@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import StyledPost from './StyledPost';
 
 const Post = ({ postInfo }) => {
@@ -8,6 +9,7 @@ const Post = ({ postInfo }) => {
         <em>Created on: </em>
         {postInfo.created}
       </p>
+      <Link to={`/posts/${postInfo.id}`}>Read post</Link>
     </StyledPost>
   );
 };
