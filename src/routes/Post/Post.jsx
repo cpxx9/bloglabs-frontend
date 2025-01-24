@@ -2,6 +2,7 @@ import parse from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { jwtDecode } from 'jwt-decode';
 import StyledPost from './StyledPost';
 import axios from '../../api/axios';
 import useAuth from '../../hooks/useAuth';
@@ -13,6 +14,10 @@ const Post = () => {
   const [commentContent, setCommentContent] = useState('');
   const axiosPrivate = useAxiosPrivate();
   const { id } = useParams();
+
+  const decoded = auth?.accessToken ? jwtDecode(auth.accessToken) : undefined;
+  const userId = decoded ? decoded.user.id : undefined;
+  console.log(userId);
 
   useEffect(() => {
     let isMounted = true;
@@ -41,14 +46,12 @@ const Post = () => {
   };
 
   const handleNewComment = async (e) => {
-    console.log(auth);
     e.preventDefault();
     try {
       const res = await axiosPrivate.post(
         '/comments',
         JSON.stringify({ content: commentContent, postId: id }),
       );
-      console.log(res);
       setCommentContent('');
     } catch (err) {
       console.log(err);
@@ -85,8 +88,10 @@ const Post = () => {
         <ul>
           {post.comments.map((comment) => (
             <li key={uuidv4()}>
-              <h5>{comment.author}</h5>
+              <h5>{comment.author.username}</h5>
               <p>{comment.content}</p>
+              <p>{comment.created}</p>
+              {userId === comment.author.id && <button>Test</button>}
             </li>
           ))}
         </ul>
