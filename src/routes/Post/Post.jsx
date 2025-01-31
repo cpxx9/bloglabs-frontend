@@ -17,7 +17,6 @@ const Post = () => {
 
   const decoded = auth?.accessToken ? jwtDecode(auth.accessToken) : undefined;
   const userId = decoded ? decoded.user.id : undefined;
-  console.log(userId);
 
   useEffect(() => {
     let isMounted = true;

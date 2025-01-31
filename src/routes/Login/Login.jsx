@@ -4,12 +4,11 @@ import useAuth from '../../hooks/useAuth';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import StyledLogin from './StyledLogin';
 import useInput from '../../hooks/useInput';
-import useToggle from '../../hooks/useToggle';
 
 const LOGIN_URL = '/login';
 
 const Login = () => {
-  const { setAuth } = useAuth();
+  const { setAuth, persist, setPersist } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,7 +21,6 @@ const Login = () => {
   const [user, resetUser, userAttributes] = useInput('user', '');
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
-  const [check, toggleCheck] = useToggle('persist', false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -31,6 +29,14 @@ const Login = () => {
   useEffect(() => {
     setErrMsg('');
   }, [user, pwd]);
+
+  const togglePersist = () => {
+    setPersist((prev) => !prev);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('persist', persist);
+  }, [persist]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,7 +85,7 @@ const Login = () => {
         />
         <button>Sign in</button>
         <div className="persistCheck">
-          <input type="checkbox" id="persist" onChange={toggleCheck} checked={check} />
+          <input type="checkbox" id="persist" onChange={togglePersist} checked={persist} />
           <label htmlFor="persist">Remeber this device?</label>
         </div>
       </form>
