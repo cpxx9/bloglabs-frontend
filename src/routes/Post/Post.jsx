@@ -1,5 +1,5 @@
 import parse from 'html-react-parser';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { jwtDecode } from 'jwt-decode';
@@ -14,6 +14,7 @@ const Post = () => {
   const [post, setPost] = useState({});
   const [commentContent, setCommentContent] = useState('');
   const axiosPrivate = useAxiosPrivate();
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const decoded = auth?.accessToken ? jwtDecode(auth.accessToken) : undefined;
@@ -53,6 +54,7 @@ const Post = () => {
         JSON.stringify({ content: commentContent, postId: id }),
       );
       setCommentContent('');
+      navigate(0);
     } catch (err) {
       console.log(err);
     }

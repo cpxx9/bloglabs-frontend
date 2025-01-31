@@ -7,10 +7,9 @@ const Comment = ({ comment, userId, postId }) => {
   const navigate = useNavigate();
   const handleCommentDelete = async () => {
     try {
-      console.log(comment);
-      console.log(postId);
-      // const res = await axiosPrivate.delete(`/comments/${comment.id}`);
-      navigate(`/posts/${postId}`);
+      const res = await axiosPrivate.delete(`/comments/${comment.id}`);
+      // navigate(`/posts/${postId}`);
+      navigate(0);
     } catch (err) {
       console.log(err);
     }
@@ -21,7 +20,7 @@ const Comment = ({ comment, userId, postId }) => {
       <h5>{comment.author.username}</h5>
       <p>{comment.content}</p>
       <p>{comment.created}</p>
-      {userId === comment.author.id && <button onClick={handleCommentDelete}>Test</button>}
+      {userId === comment.author.id && <button onClick={handleCommentDelete}>Delete</button>}
     </StyledComment>
   );
 };
