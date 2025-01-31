@@ -88,7 +88,7 @@ const Post = () => {
         <ul>
           {post.comments.map((comment) => (
             <li key={uuidv4()}>
-              <Comment comment={comment} userId={userId} />
+              <Comment comment={comment} userId={userId} postId={id} />
             </li>
           ))}
         </ul>

@@ -2,14 +2,15 @@ import { useNavigate } from 'react-router-dom';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import StyledComment from './StyledComment';
 
-const Comment = ({ comment, userId }) => {
+const Comment = ({ comment, userId, postId }) => {
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
   const handleCommentDelete = async () => {
     try {
       console.log(comment);
-      const res = await axiosPrivate.delete(`/comments/${comment.id}`);
-      navigate(-1);
+      console.log(postId);
+      // const res = await axiosPrivate.delete(`/comments/${comment.id}`);
+      navigate(`/posts/${postId}`);
     } catch (err) {
       console.log(err);
     }
