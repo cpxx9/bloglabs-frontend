@@ -12,7 +12,6 @@ const UserNav = ({ children }) => {
 
   const decoded = auth.accessToken ? jwtDecode(auth.accessToken) : 'Sign in';
   const username = decoded?.user?.username;
-  console.log(username);
 
   const signOut = async () => {
     await logout();

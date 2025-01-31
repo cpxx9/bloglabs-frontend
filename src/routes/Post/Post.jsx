@@ -7,6 +7,7 @@ import StyledPost from './StyledPost';
 import axios from '../../api/axios';
 import useAuth from '../../hooks/useAuth';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
+import Comment from '../../components/Comment/Comment';
 
 const Post = () => {
   const { auth } = useAuth();
@@ -87,10 +88,7 @@ const Post = () => {
         <ul>
           {post.comments.map((comment) => (
             <li key={uuidv4()}>
-              <h5>{comment.author.username}</h5>
-              <p>{comment.content}</p>
-              <p>{comment.created}</p>
-              {userId === comment.author.id && <button>Test</button>}
+              <Comment comment={comment} userId={userId} />
             </li>
           ))}
         </ul>
