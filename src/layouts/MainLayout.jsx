@@ -6,7 +6,6 @@ import useAuth from '../hooks/useAuth';
 
 const MainLayout = () => {
   const { auth } = useAuth();
-  console.log(auth);
   return (
     <>
       <Header>
