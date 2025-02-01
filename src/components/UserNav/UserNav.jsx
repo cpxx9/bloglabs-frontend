@@ -3,10 +3,12 @@ import { jwtDecode } from 'jwt-decode';
 import useAuth from '../../hooks/useAuth';
 import useLogout from '../../hooks/useLogout';
 import StyledUserNav from './StyledUserNav';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const UserNav = ({ children }) => {
   const logout = useLogout();
+  const location = useLocation();
+  const path = location.pathname;
   const { auth } = useAuth();
   const [dropDownClass, setDropDownClass] = useState('dropdown inactive');
 
@@ -36,7 +38,7 @@ const UserNav = ({ children }) => {
       </button>
       <div className={dropDownClass}>
         {!username ? (
-          <Link to={'/login'} onClick={makeInactive}>
+          <Link to={'/login'} state={{ path }} onClick={makeInactive}>
             Log in
           </Link>
         ) : (

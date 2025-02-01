@@ -7,7 +7,7 @@ import useInput from '../../hooks/useInput';
 
 const LOGIN_URL = '/login';
 
-const Login = () => {
+const Login = (props) => {
   const { setAuth, persist, setPersist } = useAuth();
 
   const navigate = useNavigate();
@@ -17,6 +17,8 @@ const Login = () => {
 
   const userRef = useRef();
   const errRef = useRef();
+
+  const { path } = location.state;
 
   const [user, resetUser, userAttributes] = useInput('user', '');
   const [pwd, setPwd] = useState('');
@@ -49,7 +51,7 @@ const Login = () => {
       setAuth({ user, accessToken });
       resetUser();
       setPwd('');
-      navigate(from, { replace: true });
+      navigate(`${path}`, from, { replace: true });
     } catch (err) {
       const errDat = err.code === 'ERR_NETWORK' ? 'Server error' : err.response.data.msg;
       setErrMsg(errDat);
