@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 const StyledUserNav = styled.div`
-  padding: 0.5em 1em;
+  padding: 0.5rem 1.2rem;
   display: flex;
   justify-content: space-between;
 
@@ -20,7 +20,13 @@ const StyledUserNav = styled.div`
     cursor: pointer;
   }
 
+  h1 {
+    font-size: 2rem;
+  }
+
   .dropdown {
+    display: flex;
+    flex-direction: column;
     text-align: end;
     width: 40dvw;
     padding: 0.2em 0.6em;

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from '../../api/axios';
@@ -10,6 +10,8 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,32}$/;
 const REGISTER_URL = '/register';
 
 const Register = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const userRef = useRef();
   const errRef = useRef();
 
@@ -66,6 +68,7 @@ const Register = () => {
         },
       );
       setSuccess(true);
+      navigate(`${location.state.path}`);
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No server response');

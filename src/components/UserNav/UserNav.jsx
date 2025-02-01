@@ -34,7 +34,7 @@ const UserNav = () => {
   return (
     <StyledUserNav>
       <Link to="/">
-        <h2>BlogLabs</h2>
+        <h1>BlogLabs</h1>
       </Link>
       <div className="user-wrap">
         <button onClick={handleDropDown}>
@@ -42,9 +42,14 @@ const UserNav = () => {
         </button>
         <div className={dropDownClass}>
           {!username ? (
-            <Link to={'/login'} state={{ path }} onClick={makeInactive}>
-              Log in
-            </Link>
+            <>
+              <Link to={'/register'} state={{ path }} onClick={makeInactive}>
+                Sign up
+              </Link>
+              <Link to={'/login'} state={{ path }} onClick={makeInactive}>
+                Log in
+              </Link>
+            </>
           ) : (
             <a href="" onClick={signOut}>
               Log out

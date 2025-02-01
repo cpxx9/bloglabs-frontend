@@ -72,38 +72,40 @@ const Post = () => {
       <button onClick={scrollToComment}>Go to comments</button>
       <article>{post?.content && parse(post.content)}</article>
       <br />
-      <h4 ref={commentRef}>Comments</h4>
-      <button onClick={scrollBack}>Back to top</button>
-      {auth.accessToken ? (
-        <>
-          <label htmlFor="comment">
-            New comment:
-            <br />
-            <textarea
-              onChange={onCommentInputChange}
-              name="comment"
-              id="comment"
-              cols="75"
-              value={commentContent}
-              rows="2"></textarea>
-            <br />
-          </label>
-          <button onClick={handleNewComment}>Post</button>
-        </>
-      ) : (
-        <p>Only members can comment!</p>
-      )}
-      {post.comments?.length ? (
-        <ul>
-          {post.comments.map((comment) => (
-            <li key={uuidv4()}>
-              <Comment comment={comment} userId={userId} postId={id} />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No comments to display</p>
-      )}
+      <section className="comments-section">
+        <h4 ref={commentRef}>Comments</h4>
+        <button onClick={scrollBack}>Back to top</button>
+        {auth.accessToken ? (
+          <>
+            <label htmlFor="comment">
+              New comment:
+              <br />
+              <textarea
+                onChange={onCommentInputChange}
+                name="comment"
+                id="comment"
+                cols="75"
+                value={commentContent}
+                rows="2"></textarea>
+              <br />
+            </label>
+            <button onClick={handleNewComment}>Post</button>
+          </>
+        ) : (
+          <p>Only members can comment!</p>
+        )}
+        {post.comments?.length ? (
+          <ul>
+            {post.comments.map((comment) => (
+              <li key={uuidv4()}>
+                <Comment comment={comment} userId={userId} postId={id} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No comments to display</p>
+        )}
+      </section>
     </StyledPost>
   );
 };
