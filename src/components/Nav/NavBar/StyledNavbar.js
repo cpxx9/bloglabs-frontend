@@ -5,7 +5,7 @@ const StyledNavBar = styled.nav`
   gap: 0.7em;
   align-items: center;
   justify-content: flex-end;
-  border-bottom: 1px ridge lightgray;
+  border-bottom: 1px ridge gray;
 
   a {
     text-decoration: none;
@@ -16,7 +16,7 @@ const StyledNavBar = styled.nav`
     padding: 0.2rem 0.6rem;
     font-weight: bold;
     background-color: rgba(164, 164, 164, 0.8);
-    border-radius: 4px;
+    border-radius: 5px;
   }
 `;
 

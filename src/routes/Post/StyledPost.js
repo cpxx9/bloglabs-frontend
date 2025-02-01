@@ -11,6 +11,10 @@ const StyledPost = styled.section`
     resize: none;
     overflow: scroll;
   }
+
+  article {
+    font-family: 'Times New Roman', Times, serif;
+  }
 `;
 
 export default StyledPost;

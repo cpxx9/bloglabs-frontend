@@ -1,9 +1,16 @@
 body {
-  background: #f4f4f4;
-  color: #555;
+  background: #e6f3f0;
+  color: #953787;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   line-height: 1.6em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #4b164c;
 }
 
 .instructions {

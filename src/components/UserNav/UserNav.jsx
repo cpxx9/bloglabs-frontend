@@ -43,7 +43,11 @@ const UserNav = () => {
         <div className={dropDownClass}>
           {!username ? (
             <>
-              <Link to={'/register'} state={{ path }} onClick={makeInactive}>
+              <Link
+                className="register-link"
+                to={'/register'}
+                state={{ path }}
+                onClick={makeInactive}>
                 Sign up
               </Link>
               <Link to={'/login'} state={{ path }} onClick={makeInactive}>

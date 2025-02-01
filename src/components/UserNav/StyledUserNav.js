@@ -20,7 +20,12 @@ const StyledUserNav = styled.div`
     cursor: pointer;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   h1 {
+    color: #4b164c;
     font-size: 2rem;
   }
 
@@ -30,14 +35,14 @@ const StyledUserNav = styled.div`
     text-align: end;
     width: 40dvw;
     padding: 0.2em 0.6em;
-    border: 1px solid lightgray;
+    border: 1px solid gray;
     border-radius: 4px;
   }
 
   .active {
     position: absolute;
     right: 0;
-    top: 3.5em;
+    top: 1.8em;
     background-color: #fff;
     z-index: 1000;
   }
@@ -46,6 +51,10 @@ const StyledUserNav = styled.div`
     position: fixed;
     top: -50%;
     right: -50%;
+  }
+
+  .register-link {
+    font-weight: bold;
   }
 `;
 
