@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { jwtDecode } from 'jwt-decode';
 import StyledPost from './StyledPost';
@@ -10,6 +10,8 @@ import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import Comment from '../../components/Comment/Comment';
 
 const Post = () => {
+  const commentRef = useRef(null);
+  const returnRef = useRef(null);
   const { auth } = useAuth();
   const [post, setPost] = useState({});
   const [commentContent, setCommentContent] = useState('');
@@ -19,6 +21,9 @@ const Post = () => {
 
   const decoded = auth?.accessToken ? jwtDecode(auth.accessToken) : undefined;
   const userId = decoded ? decoded.user.id : undefined;
+
+  const scrollToComment = () => commentRef.current.scrollIntoView({ behavior: 'smooth' });
+  const scrollBack = () => returnRef.current.scrollIntoView({ behavior: 'smooth' });
 
   useEffect(() => {
     let isMounted = true;
@@ -63,10 +68,12 @@ const Post = () => {
   return (
     <StyledPost>
       <h4>{post.title}</h4>
-      <h5>{post.subtitle}</h5>
+      <h5 ref={returnRef}>{post.subtitle}</h5>
+      <button onClick={scrollToComment}>Go to comments</button>
       {post?.content && parse(post.content)}
       <br />
-      <h4>Comments</h4>
+      <h4 ref={commentRef}>Comments</h4>
+      <button onClick={scrollBack}>Back to post</button>
       {auth.accessToken ? (
         <>
           <label htmlFor="comment">

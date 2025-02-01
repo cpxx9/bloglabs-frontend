@@ -5,9 +5,9 @@ import useAuth from '../hooks/useAuth';
 import useLogout from '../hooks/useLogout';
 
 const PersistLogin = () => {
+  const { auth, persist } = useAuth();
   const [isLoading, setIsLoading] = useState(true);
   const refresh = useRefreshToken();
-  const { auth, persist } = useAuth();
   const logout = useLogout();
 
   const signOut = async () => {
