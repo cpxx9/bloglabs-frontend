@@ -67,13 +67,13 @@ const Post = () => {
 
   return (
     <StyledPost>
-      <h4>{post.title}</h4>
-      <h5 ref={returnRef}>{post.subtitle}</h5>
+      <h1 ref={returnRef}>{post.title}</h1>
+      <h3>{post.subtitle}</h3>
       <button onClick={scrollToComment}>Go to comments</button>
-      {post?.content && parse(post.content)}
+      <article>{post?.content && parse(post.content)}</article>
       <br />
       <h4 ref={commentRef}>Comments</h4>
-      <button onClick={scrollBack}>Back to post</button>
+      <button onClick={scrollBack}>Back to top</button>
       {auth.accessToken ? (
         <>
           <label htmlFor="comment">

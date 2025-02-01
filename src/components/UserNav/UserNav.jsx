@@ -5,7 +5,7 @@ import useLogout from '../../hooks/useLogout';
 import StyledUserNav from './StyledUserNav';
 import { Link, useLocation } from 'react-router-dom';
 
-const UserNav = ({ children }) => {
+const UserNav = () => {
   const logout = useLogout();
   const location = useLocation();
   const path = location.pathname;
@@ -33,19 +33,24 @@ const UserNav = ({ children }) => {
 
   return (
     <StyledUserNav>
-      <button onClick={handleDropDown}>
-        <h3>{username ? username : '==='}</h3>
-      </button>
-      <div className={dropDownClass}>
-        {!username ? (
-          <Link to={'/login'} state={{ path }} onClick={makeInactive}>
-            Log in
-          </Link>
-        ) : (
-          <a href="" onClick={signOut}>
-            Log out
-          </a>
-        )}
+      <Link to="/">
+        <h2>BlogLabs</h2>
+      </Link>
+      <div className="user-wrap">
+        <button onClick={handleDropDown}>
+          <h3>{username ? username : '==='}</h3>
+        </button>
+        <div className={dropDownClass}>
+          {!username ? (
+            <Link to={'/login'} state={{ path }} onClick={makeInactive}>
+              Log in
+            </Link>
+          ) : (
+            <a href="" onClick={signOut}>
+              Log out
+            </a>
+          )}
+        </div>
       </div>
     </StyledUserNav>
   );

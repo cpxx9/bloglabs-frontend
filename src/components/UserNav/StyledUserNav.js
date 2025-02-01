@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 const StyledUserNav = styled.div`
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: space-between;
+
+  .user-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   button {
     border: none;
     background: none;
@@ -9,8 +20,18 @@ const StyledUserNav = styled.div`
     cursor: pointer;
   }
 
+  .dropdown {
+    text-align: end;
+    width: 40dvw;
+    padding: 0.2em 0.6em;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+  }
+
   .active {
     position: absolute;
+    right: 0;
+    top: 3.5em;
     background-color: #fff;
     z-index: 1000;
   }
