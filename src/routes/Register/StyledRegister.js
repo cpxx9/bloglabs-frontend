@@ -20,6 +20,16 @@ const StyledRegister = styled.section`
         display: flex;
         flex-direction: column;
 
+        input {
+          border: 1px solid gray;
+          border-radius: 5px;
+        }
+
+        button {
+          border: 1px solid gray;
+          border-radius: 30px;
+        }
+
         .not-req {
           font-size: 0.7em;
           line-height: 0.8em;

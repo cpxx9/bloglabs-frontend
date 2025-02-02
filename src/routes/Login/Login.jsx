@@ -66,30 +66,40 @@ const Login = () => {
       <h1>Login</h1>
       {failAuth && <p>You must sign in as an admin!</p>}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          ref={userRef}
-          autoComplete="off"
-          {...userAttributes}
-          required
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={(e) => setPwd(e.target.value)}
-          value={pwd}
-          required
-        />
-        <button>Sign in</button>
-        <div className="persistCheck">
-          <input type="checkbox" id="persist" onChange={togglePersist} checked={persist} />
-          <label htmlFor="persist">Remeber this device?</label>
-        </div>
+        <ul>
+          <li>
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              ref={userRef}
+              autoComplete="off"
+              {...userAttributes}
+              required
+            />
+          </li>
+          <li>
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={(e) => setPwd(e.target.value)}
+              value={pwd}
+              required
+            />
+          </li>
+          <li>
+            <button>Sign in</button>
+          </li>
+          <li>
+            <div className="persistCheck">
+              <input type="checkbox" id="persist" onChange={togglePersist} checked={persist} />
+              <label htmlFor="persist">Remeber this device?</label>
+            </div>
+          </li>
+        </ul>
       </form>
       <p>
         No account? <Link to="/register">Sign up</Link>
