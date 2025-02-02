@@ -35,8 +35,8 @@ const UserNav = () => {
   };
 
   useEffect(() => {
-    html.addEventListener('mouseup', (e) => {
-      if (e.target.className !== 'user-icon') setDropDownClass('dropdown inactive');
+    html.addEventListener('click', (e) => {
+      if (e.target.children.length !== 0) setDropDownClass('dropdown inactive');
     });
   }, []);
 
