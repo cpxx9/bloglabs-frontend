@@ -5,6 +5,10 @@ const StyledPost = styled.div`
     color: inherit;
   }
 
+  .author {
+    font-weight: bold;
+  }
+
   p {
     font-size: 1.1rem;
   }

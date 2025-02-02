@@ -7,7 +7,10 @@ const Post = ({ postInfo }) => {
   return (
     <StyledPost>
       <Link className="post-card" to={`/posts/${postInfo.id}`}>
-        <h4>{postInfo.title}</h4>
+        <div>
+          <h4>{postInfo.title}</h4>
+          <p className="author">By: {postInfo.author.username}</p>
+        </div>
         <p>{date.toLocaleDateString()}</p>
       </Link>
     </StyledPost>
