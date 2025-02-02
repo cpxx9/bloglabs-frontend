@@ -10,6 +10,9 @@ const Comment = ({ comment, userId, postId }) => {
   const admin = decoded?.user.admin || false;
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
+
+  const date = new Date(comment.created);
+
   const handleCommentDelete = async () => {
     try {
       const res = await axiosPrivate.delete(`/comments/${comment.id}`);
@@ -21,9 +24,11 @@ const Comment = ({ comment, userId, postId }) => {
 
   return (
     <StyledComment>
-      <h5>{comment.author.username}</h5>
-      <p>{comment.content}</p>
-      <p>{comment.created}</p>
+      <div className="info">
+        <h5>{comment.author.username}</h5>
+        <p>{date.toLocaleDateString()}</p>
+      </div>
+      <p className="content">{comment.content}</p>
       {(userId === comment.author.id || admin) && (
         <button onClick={handleCommentDelete}>Delete</button>
       )}

@@ -7,7 +7,7 @@ import useInput from '../../hooks/useInput';
 
 const LOGIN_URL = '/login';
 
-const Login = (props) => {
+const Login = () => {
   const { setAuth, persist, setPersist } = useAuth();
 
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ const Login = (props) => {
   const userRef = useRef();
   const errRef = useRef();
 
+  console.log(location);
   const { path } = location.state;
 
   const [user, resetUser, userAttributes] = useInput('user', '');

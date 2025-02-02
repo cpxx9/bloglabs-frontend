@@ -1,13 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import StyledNavBar from './StyledNavbar';
 
 const Navbar = () => {
+  const location = useLocation();
+  const path = location.pathname;
+
   return (
     <StyledNavBar>
       <Link className="register-link" to="/register">
         Sign up
       </Link>
-      <Link to="/login">Sign in</Link>
+      <Link to="/login" state={{ path }}>
+        Sign in
+      </Link>
     </StyledNavBar>
   );
 };

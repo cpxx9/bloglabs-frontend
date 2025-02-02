@@ -6,6 +6,14 @@ const StyledPost = styled.section`
     position: relative;
   }
 
+  ul {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
   h1 {
     font-size: 2rem;
   }
