@@ -34,7 +34,7 @@ const UserNav = () => {
 
   return (
     <StyledUserNav>
-      <Link to="/">
+      <Link className="header-link" to="/">
         <h1>BlogLabs</h1>
       </Link>
       <div className="user-wrap">

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 const StyledUserNav = styled.div`
-  padding: 0.5rem 1.2rem;
+  padding: 0.75rem 1.2rem;
   display: flex;
   justify-content: space-between;
 
@@ -47,6 +47,12 @@ const StyledUserNav = styled.div`
     border: 1px solid gray;
     border-radius: 4px;
     box-shadow: 0 0 8px #969696;
+  }
+
+  .header-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .active {
