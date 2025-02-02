@@ -18,7 +18,6 @@ const Login = () => {
   const userRef = useRef();
   const errRef = useRef();
 
-  console.log(location);
   const { path } = location.state;
 
   const [user, resetUser, userAttributes] = useInput('user', '');

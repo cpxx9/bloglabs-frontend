@@ -3,6 +3,7 @@ import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import StyledComment from './StyledComment';
 import { jwtDecode } from 'jwt-decode';
 import useAuth from '../../hooks/useAuth';
+import trash from '../../icons/trash.svg';
 
 const Comment = ({ comment, userId, postId }) => {
   const { auth } = useAuth();
@@ -30,7 +31,9 @@ const Comment = ({ comment, userId, postId }) => {
       </div>
       <p className="content">{comment.content}</p>
       {(userId === comment.author.id || admin) && (
-        <button onClick={handleCommentDelete}>Delete</button>
+        <button className="del-comment" onClick={handleCommentDelete}>
+          <img src={trash} alt="trashcan" />
+        </button>
       )}
     </StyledComment>
   );

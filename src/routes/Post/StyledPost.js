@@ -34,7 +34,7 @@ const StyledPost = styled.section`
     font-size: 2rem;
   }
 
-  button {
+  button.icon {
     position: absolute;
     border: none;
     height: 40px;
@@ -59,12 +59,33 @@ const StyledPost = styled.section`
   }
 
   button.up {
-    top: 0;
+    top: 1rem;
     right: 0;
   }
 
   .comments-section {
     position: relative;
+    border-top: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .textbox {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .post-btn {
+      width: 100%;
+      border: 2px solid gray;
+      border-radius: 40px;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
   }
 
   #comment {

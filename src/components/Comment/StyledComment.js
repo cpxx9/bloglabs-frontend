@@ -2,10 +2,11 @@ import styled from 'styled-components';
 const StyledComment = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 3px;
   border: 1px solid gray;
   border-radius: 7px;
-  padding: 0.5rem 0.5rem;
+  padding: 0.75rem 0.5rem;
   background-color: white;
 
   h5 {
@@ -22,6 +23,19 @@ const StyledComment = styled.div`
   .info {
     display: flex;
     justify-content: space-between;
+  }
+
+  .del-comment {
+    border: none;
+    position: absolute;
+    bottom: 0;
+    background: none;
+    color: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    align-self: flex-end;
+    width: 35px;
   }
 
   .content {

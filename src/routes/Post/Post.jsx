@@ -4,8 +4,8 @@ import { useEffect, useState, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { jwtDecode } from 'jwt-decode';
 import StyledPost from './StyledPost';
-import commentDown from '../../../public/icons/comment-down.svg';
-import articleUp from '../../../public/icons/article-up.svg';
+import commentDown from '../../icons/comment-down.svg';
+import articleUp from '../../icons/article-up.svg';
 import axios from '../../api/axios';
 import useAuth from '../../hooks/useAuth';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
@@ -77,43 +77,45 @@ const Post = () => {
           <h3>{post.subtitle}</h3>
           <div className="author">
             <h5>
-              <em>By: {post.author.username}</em>
+              <em>By: {post?.author?.username}</em>
             </h5>
             <p>
               <em>{postDate.toLocaleDateString()}</em>
             </p>
           </div>
         </div>
-        <button className="down" onClick={scrollToComment}>
+        <button className="down icon" onClick={scrollToComment}>
           <img src={commentDown} alt="icon of comment" />
         </button>
         <article>{post?.content && parse(post.content)}</article>
       </div>
       <br />
       <section className="comments-section">
-        <button className="up" onClick={scrollBack}>
+        <button className="up icon" onClick={scrollBack}>
           <img src={articleUp} alt="icon of article" />
         </button>
-        <h4 ref={commentRef}>Comments</h4>
-        {auth.accessToken ? (
-          <>
-            <label htmlFor="comment">
-              New comment:
-              <br />
-              <textarea
-                onChange={onCommentInputChange}
-                name="comment"
-                id="comment"
-                cols="75"
-                value={commentContent}
-                rows="2"></textarea>
-              <br />
-            </label>
-            <button onClick={handleNewComment}>Post</button>
-          </>
-        ) : (
-          <p>Only members can comment!</p>
-        )}
+        <div className="comment-header">
+          <h4 ref={commentRef}>Comments</h4>
+          {auth.accessToken ? (
+            <>
+              <form>
+                <label htmlFor="comment">New comment:</label>
+                <textarea
+                  className="textbox"
+                  onChange={onCommentInputChange}
+                  name="comment"
+                  id="comment"
+                  value={commentContent}></textarea>
+                <br />
+                <button className="post-btn" onClick={handleNewComment}>
+                  Post
+                </button>
+              </form>
+            </>
+          ) : (
+            <p>Only members can comment!</p>
+          )}
+        </div>
         {post.comments?.length ? (
           <ul>
             {post.comments.map((comment) => (
