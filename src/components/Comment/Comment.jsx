@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import StyledComment from './StyledComment';
@@ -37,6 +38,12 @@ const Comment = ({ comment, userId, postId }) => {
       )}
     </StyledComment>
   );
+};
+
+Comment.propTypes = {
+  comment: PropTypes.object,
+  userId: PropTypes.string,
+  postId: PropTypes.string,
 };
 
 export default Comment;
