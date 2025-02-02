@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import useAuth from '../../hooks/useAuth';
 import useLogout from '../../hooks/useLogout';
@@ -16,6 +16,8 @@ const UserNav = () => {
   const decoded = auth.accessToken ? jwtDecode(auth.accessToken) : 'Sign in';
   const username = decoded?.user?.username;
 
+  const html = document.getElementById('html');
+
   const signOut = async () => {
     await logout();
   };
@@ -32,6 +34,12 @@ const UserNav = () => {
     setDropDownClass('dropdown inactive');
   };
 
+  useEffect(() => {
+    html.addEventListener('mouseup', (e) => {
+      if (e.target.className !== 'user-icon') setDropDownClass('dropdown inactive');
+    });
+  }, []);
+
   return (
     <StyledUserNav>
       <Link className="header-link" to="/">
@@ -39,7 +47,7 @@ const UserNav = () => {
       </Link>
       <div className="user-wrap">
         <button onClick={handleDropDown}>
-          <img src={user} alt="user icon" />
+          <img className="user-icon" src={user} alt="user icon" />
         </button>
         <div className={dropDownClass}>
           {!username ? (
