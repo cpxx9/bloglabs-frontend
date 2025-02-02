@@ -3,16 +3,20 @@ import Navbar from '../components/Nav/NavBar/Navbar';
 import Header from '../components/Header/Header';
 import UserNav from '../components/UserNav/UserNav';
 import useAuth from '../hooks/useAuth';
+import Footer from '../components/Footer/Footer';
 
 const MainLayout = () => {
   const { auth } = useAuth();
   return (
     <>
-      <Header>
-        {!auth?.accessToken && <Navbar />}
-        <UserNav />
-      </Header>
-      <Outlet />
+      <div>
+        <Header>
+          {!auth?.accessToken && <Navbar />}
+          <UserNav />
+        </Header>
+        <Outlet />
+      </div>
+      <Footer />
     </>
   );
 };
