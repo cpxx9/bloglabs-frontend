@@ -4,9 +4,25 @@ const StyledRegister = styled.section`
   padding: 1.5rem 1.5rem;
   box-shadow: inset 0px 8px 6px -6px #888;
 
-  button {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  form {
+    ul {
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      list-style: none;
+
+      li {
+        display: flex;
+        flex-direction: column;
+
+        .not-req {
+          font-size: 0.7em;
+          line-height: 0.8em;
+          margin-bottom: 4px;
+        }
+      }
+    }
   }
 `;
 
