@@ -41,6 +41,11 @@ h4 {
   left: -9999px;
 }
 
+.App,
+#root {
+  flex: 1;
+}
+
 .hide {
   display: none;
 }
