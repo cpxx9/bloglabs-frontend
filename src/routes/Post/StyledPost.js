@@ -95,7 +95,7 @@ const StyledPost = styled.section`
   }
 
   article {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Domine', Times, serif;
   }
 `;
 
