@@ -67,14 +67,20 @@ const Post = () => {
 
   return (
     <StyledPost>
-      <h1 ref={returnRef}>{post.title}</h1>
-      <h3>{post.subtitle}</h3>
-      <button onClick={scrollToComment}>Go to comments</button>
-      <article>{post?.content && parse(post.content)}</article>
+      <div className="article-section">
+        <h1 ref={returnRef}>{post.title}</h1>
+        <h3>{post.subtitle}</h3>
+        <button className="down" onClick={scrollToComment}>
+          D
+        </button>
+        <article>{post?.content && parse(post.content)}</article>
+      </div>
       <br />
       <section className="comments-section">
+        <button className="up" onClick={scrollBack}>
+          U
+        </button>
         <h4 ref={commentRef}>Comments</h4>
-        <button onClick={scrollBack}>Back to top</button>
         {auth.accessToken ? (
           <>
             <label htmlFor="comment">
