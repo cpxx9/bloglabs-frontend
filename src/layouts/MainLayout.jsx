@@ -9,7 +9,7 @@ const MainLayout = () => {
   const { auth } = useAuth();
   return (
     <>
-      <div>
+      <div className="no-foot">
         <Header>
           {!auth?.accessToken && <Navbar />}
           <UserNav />
