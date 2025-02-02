@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <StyledNavBar>
-      <Link className="register-link" to="/register">
+      <Link className="register-link" to="/register" state={{ path }}>
         Sign up
       </Link>
       <Link to="/login" state={{ path }}>
