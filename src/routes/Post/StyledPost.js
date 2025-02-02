@@ -66,6 +66,7 @@ const StyledPost = styled.section`
   .comments-section {
     position: relative;
     border-top: 1px solid lightgray;
+    padding-top: 0.75rem;
     display: flex;
     flex-direction: column;
     gap: 24px;

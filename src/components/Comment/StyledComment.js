@@ -6,7 +6,7 @@ const StyledComment = styled.div`
   gap: 3px;
   border: 1px solid gray;
   border-radius: 7px;
-  padding: 0.75rem 0.5rem;
+  padding: 0.85rem 0.5rem;
   background-color: white;
 
   h5 {
