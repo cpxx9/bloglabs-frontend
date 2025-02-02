@@ -4,6 +4,7 @@ import useAuth from '../../hooks/useAuth';
 import useLogout from '../../hooks/useLogout';
 import StyledUserNav from './StyledUserNav';
 import { Link, useLocation } from 'react-router-dom';
+import user from '../../icons/user.svg';
 
 const UserNav = () => {
   const logout = useLogout();
@@ -38,7 +39,7 @@ const UserNav = () => {
       </Link>
       <div className="user-wrap">
         <button onClick={handleDropDown}>
-          <h3>{username ? username : '==='}</h3>
+          <img src={user} alt="user icon" />
         </button>
         <div className={dropDownClass}>
           {!username ? (

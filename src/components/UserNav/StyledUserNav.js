@@ -16,8 +16,13 @@ const StyledUserNav = styled.div`
     background: none;
     color: inherit;
     padding: 0;
+    width: 50px;
     font: inherit;
     cursor: pointer;
+
+    img {
+      filter: drop-shadow(0 0 4px #969696);
+    }
   }
 
   a {
