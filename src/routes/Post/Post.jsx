@@ -21,6 +21,8 @@ const Post = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  const postDate = new Date(post.created);
+
   const decoded = auth?.accessToken ? jwtDecode(auth.accessToken) : undefined;
   const userId = decoded ? decoded.user.id : undefined;
 
@@ -70,8 +72,18 @@ const Post = () => {
   return (
     <StyledPost ref={returnRef}>
       <div className="article-section">
-        <h1>{post.title}</h1>
-        <h3>{post.subtitle}</h3>
+        <div className="article-header">
+          <h1>{post.title}</h1>
+          <h3>{post.subtitle}</h3>
+          <div className="author">
+            <h5>
+              <em>By: {post.author.username}</em>
+            </h5>
+            <p>
+              <em>{postDate.toLocaleDateString()}</em>
+            </p>
+          </div>
+        </div>
         <button className="down" onClick={scrollToComment}>
           <img src={commentDown} alt="icon of comment" />
         </button>

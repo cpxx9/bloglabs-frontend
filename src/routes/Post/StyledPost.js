@@ -1,9 +1,25 @@
 import styled from 'styled-components';
 const StyledPost = styled.section`
   padding: 0.8rem 1.2rem;
+  box-shadow: inset 0px 8px 6px -6px #888;
+
+  .article-header {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+  }
 
   .article-section {
     position: relative;
+  }
+
+  .author {
+    display: flex;
+    justify-content: space-between;
+    p {
+      font-size: 1rem;
+    }
   }
 
   ul {
@@ -36,7 +52,7 @@ const StyledPost = styled.section`
   }
 
   button.down {
-    top: 0;
+    top: 1rem;
     right: 0;
     height: 50px;
     width: 50px;
