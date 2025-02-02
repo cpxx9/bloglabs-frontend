@@ -9,6 +9,10 @@ const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
   gap: 20px;
+
+  p {
+    font-size: 0.8rem;
+  }
 `;
 
 export default StyledFooter;

@@ -18,6 +18,8 @@ const StyledComment = styled.div`
     font-size: 0.9rem;
     line-height: 0.9rem;
     margin-top: 0;
+    margin-right: 40px;
+    margin-bottom: 8px;
   }
 
   .info {
@@ -28,7 +30,7 @@ const StyledComment = styled.div`
   .del-comment {
     border: none;
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     background: none;
     color: inherit;
     padding: 0;

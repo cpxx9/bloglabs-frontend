@@ -3,8 +3,7 @@ import StyledFooter from './StyledFooter';
 const Footer = () => {
   return (
     <StyledFooter>
-      <p>Footer</p>
-      <p>Footer</p>
+      <p>Copyright © 2024 - CJPLabs</p>
     </StyledFooter>
   );
 };
