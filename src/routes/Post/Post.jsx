@@ -4,6 +4,8 @@ import { useEffect, useState, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { jwtDecode } from 'jwt-decode';
 import StyledPost from './StyledPost';
+import commentDown from '../../../public/icons/comment-down.svg';
+import articleUp from '../../../public/icons/article-up.svg';
 import axios from '../../api/axios';
 import useAuth from '../../hooks/useAuth';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
@@ -66,19 +68,19 @@ const Post = () => {
   };
 
   return (
-    <StyledPost>
+    <StyledPost ref={returnRef}>
       <div className="article-section">
-        <h1 ref={returnRef}>{post.title}</h1>
+        <h1>{post.title}</h1>
         <h3>{post.subtitle}</h3>
         <button className="down" onClick={scrollToComment}>
-          D
+          <img src={commentDown} alt="icon of comment" />
         </button>
         <article>{post?.content && parse(post.content)}</article>
       </div>
       <br />
       <section className="comments-section">
         <button className="up" onClick={scrollBack}>
-          U
+          <img src={articleUp} alt="icon of article" />
         </button>
         <h4 ref={commentRef}>Comments</h4>
         {auth.accessToken ? (

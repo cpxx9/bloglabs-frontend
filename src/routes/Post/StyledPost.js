@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 const StyledPost = styled.section`
-  padding: 0.5rem 1.2rem;
+  padding: 0.8rem 1.2rem;
 
   .article-section {
     position: relative;
@@ -20,21 +20,25 @@ const StyledPost = styled.section`
 
   button {
     position: absolute;
-    border: 2px solid #4b164c;
-    padding: 0;
-    border-radius: 50% 50%;
+    border: none;
     height: 40px;
     width: 40px;
+    padding: 0;
     background: none;
     color: inherit;
     padding: 0;
     font: inherit;
     cursor: pointer;
+
+    img {
+    }
   }
 
   button.down {
     top: 0;
     right: 0;
+    height: 50px;
+    width: 50px;
   }
 
   button.up {
