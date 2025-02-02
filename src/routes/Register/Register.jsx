@@ -19,6 +19,10 @@ const Register = () => {
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
 
+  const [email, setEmail] = useState('');
+  const [validEmail, setValidEmail] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
+
   const [pwd, setPwd] = useState('');
   const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
@@ -202,7 +206,7 @@ const Register = () => {
             <br />
             <span className="line">
               {/*put router link here*/}
-              <Link to="/login">Login</Link>
+              <Link to="/login">Log in</Link>
             </span>
           </p>
         </StyledRegister>
