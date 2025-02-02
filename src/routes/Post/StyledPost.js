@@ -31,6 +31,7 @@ const StyledPost = styled.section`
     cursor: pointer;
 
     img {
+      filter: drop-shadow(0 0 4px #969696);
     }
   }
 
