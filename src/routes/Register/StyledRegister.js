@@ -12,6 +12,10 @@ const StyledRegister = styled.section`
       gap: 12px;
       list-style: none;
 
+      .note {
+        font-size: 0.8em;
+      }
+
       li {
         display: flex;
         flex-direction: column;

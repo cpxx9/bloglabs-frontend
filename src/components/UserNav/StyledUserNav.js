@@ -34,11 +34,15 @@ const StyledUserNav = styled.div`
     font-size: 2rem;
   }
 
+  .welcome {
+    font-weight: bold;
+  }
+
   .dropdown {
     display: flex;
     flex-direction: column;
     text-align: end;
-    width: 40dvw;
+    width: 70dvw;
     padding: 0.2em 0.6em;
     border: 1px solid gray;
     border-radius: 4px;

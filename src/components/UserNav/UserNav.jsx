@@ -56,9 +56,12 @@ const UserNav = () => {
               </Link>
             </>
           ) : (
-            <a href="" onClick={signOut}>
-              Log out
-            </a>
+            <>
+              <p className="welcome">Hi, {username}</p>
+              <a href="" onClick={signOut}>
+                Log out
+              </a>
+            </>
           )}
         </div>
       </div>
