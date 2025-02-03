@@ -80,7 +80,7 @@ const Register = () => {
     try {
       const res = await axios.post(
         REGISTER_URL,
-        email
+        email !== ''
           ? JSON.stringify({ username: user, email, password: pwd, confirmPassword: matchPwd })
           : JSON.stringify({ username: user, password: pwd, confirmPassword: matchPwd }),
         {
