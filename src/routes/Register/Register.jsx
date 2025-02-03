@@ -69,10 +69,12 @@ const Register = () => {
       return;
     }
 
-    const v3 = EMAIL_REGEX.test(email);
-    if (!v3) {
-      setErrMsg('Invalid email');
-      return;
+    if (email !== '') {
+      const v3 = EMAIL_REGEX.test(email);
+      if (!v3) {
+        setErrMsg('Invalid email');
+        return;
+      }
     }
 
     try {
