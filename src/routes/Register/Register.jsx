@@ -88,6 +88,7 @@ const Register = () => {
           withCredentials: true,
         },
       );
+      console.log(res);
       navigate(`${location.state.path}`);
     } catch (err) {
       if (!err?.response) {
