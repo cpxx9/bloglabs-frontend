@@ -4,6 +4,7 @@ import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from '../../api/axios';
 import StyledRegister from './StyledRegister';
+import useAuth from '../../hooks/useAuth';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{5,30}$/;
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -16,6 +17,7 @@ const Register = () => {
   const navigate = useNavigate();
   const userRef = useRef();
   const errRef = useRef();
+  const { setAuth } = useAuth();
 
   const [user, setUser] = useState('');
   const [validName, setValidName] = useState(false);
@@ -88,6 +90,8 @@ const Register = () => {
           withCredentials: true,
         },
       );
+      const accessToken = res?.data?.token;
+      setAuth({ user, accessToken });
       navigate(`${location.state.path}`);
     } catch (err) {
       if (!err?.response) {
