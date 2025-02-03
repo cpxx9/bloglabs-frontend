@@ -6,8 +6,9 @@ const useLogout = () => {
 
   const logout = async () => {
     try {
-      const res = await axiosPrivate.get('/logout');
+      localStorage.setItem('persist', false);
       setAuth({});
+      const res = await axiosPrivate.get('/logout');
     } catch (err) {
       console.error(err);
     }
