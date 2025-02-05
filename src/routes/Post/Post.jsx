@@ -85,7 +85,7 @@ const Post = () => {
           </div>
         </div>
         <button className="down icon" onClick={scrollToComment}>
-          <img src={commentDown} alt="icon of comment" />
+          <img className="down-icon" src={commentDown} alt="icon of comment" />
         </button>
         <article>{post?.content && parse(post.content)}</article>
       </div>

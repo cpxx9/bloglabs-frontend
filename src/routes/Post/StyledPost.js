@@ -37,8 +37,8 @@ const StyledPost = styled.section`
   button.icon {
     position: absolute;
     border: none;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     padding: 0;
     background: none;
     color: inherit;
@@ -47,8 +47,13 @@ const StyledPost = styled.section`
     cursor: pointer;
 
     img {
-      filter: drop-shadow(0 0 4px #969696);
+      filter: drop-shadow(0 3px 5px);
     }
+  }
+
+  button.icon:hover {
+    scale: 1.05;
+    opacity: 90%;
   }
 
   button.down {
