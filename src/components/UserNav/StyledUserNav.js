@@ -25,6 +25,15 @@ const StyledUserNav = styled.div`
     }
   }
 
+  .user-icon:hover {
+    scale: 1.1;
+  }
+
+  a:hover {
+    font-weight: bold;
+    opacity: 0.8;
+  }
+
   a {
     text-decoration: none;
   }
@@ -42,6 +51,7 @@ const StyledUserNav = styled.div`
     display: flex;
     flex-direction: column;
     text-align: end;
+    gap: 8px;
     width: 70dvw;
     padding: 0.2em 0.6em;
     border: 1px solid gray;
@@ -53,6 +63,10 @@ const StyledUserNav = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  .register-link:hover {
+    scale: 1.05;
   }
 
   .active {

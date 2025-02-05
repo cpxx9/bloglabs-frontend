@@ -8,6 +8,7 @@ const StyledNavBar = styled.nav`
   border-bottom: 1px ridge gray;
 
   a {
+    display: inline-block;
     text-decoration: none;
     padding: 0 0.2rem;
   }
@@ -17,6 +18,18 @@ const StyledNavBar = styled.nav`
     font-weight: bold;
     background-color: rgba(164, 164, 164, 0.8);
     border-radius: 5px;
+  }
+
+  .login-link {
+    width: 90px;
+  }
+
+  .login-link:hover {
+    font-weight: bold;
+  }
+
+  .register-link:hover {
+    background-color: rgba(164, 164, 164, 0.6);
   }
 `;
 

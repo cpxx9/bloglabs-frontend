@@ -14,6 +14,11 @@ const StyledPostsList = styled.article`
     border-radius: 6px;
     background-color: white;
   }
+
+  li:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    scale: 0.97;
+  }
 `;
 
 export default StyledPostsList;
