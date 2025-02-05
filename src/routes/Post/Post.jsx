@@ -21,7 +21,8 @@ const Post = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const postDate = new Date(post.created);
+  const postDate = new Date(post.datepublished).toLocaleDateString();
+  const postUpdatedDate = new Date(post.updated).toLocaleDateString();
 
   const decoded = auth?.accessToken ? jwtDecode(auth.accessToken) : undefined;
   const userId = decoded ? decoded.user.id : undefined;
@@ -80,9 +81,14 @@ const Post = () => {
               <em>By: {post?.author?.username}</em>
             </h5>
             <p>
-              <em>{postDate.toLocaleDateString()}</em>
+              <em>{postDate}</em>
             </p>
           </div>
+          {postUpdatedDate > postDate && (
+            <h6>
+              Updated: <em>{postUpdatedDate}</em>
+            </h6>
+          )}
         </div>
         <button className="down icon" onClick={scrollToComment}>
           <img className="down-icon" src={commentDown} alt="icon of comment" />
