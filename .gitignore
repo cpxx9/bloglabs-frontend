@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 src/utils/template.xlsx
-src/api
+.env
 
 # Editor directories and files
 .vscode/*
