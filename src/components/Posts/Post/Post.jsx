@@ -3,7 +3,6 @@ import StyledPost from './StyledPost';
 
 const Post = ({ postInfo }) => {
   const date = new Date(postInfo.datepublished);
-  console.log(date);
 
   return (
     <StyledPost>
