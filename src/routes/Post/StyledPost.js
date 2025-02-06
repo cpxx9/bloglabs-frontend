@@ -81,7 +81,6 @@ const StyledPost = styled.section`
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       width: 100%;
-      overflow: hidden;
       field-sizing: content;
     }
 
@@ -94,11 +93,6 @@ const StyledPost = styled.section`
       font: inherit;
       cursor: pointer;
     }
-  }
-
-  #comment {
-    resize: none;
-    overflow: scroll;
   }
 
   article {
