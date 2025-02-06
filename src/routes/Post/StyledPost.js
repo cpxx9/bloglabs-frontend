@@ -87,6 +87,7 @@ const StyledPost = styled.section`
 
     .post-btn {
       width: 100%;
+      min-height: 90px;
       border: 2px solid gray;
       border-radius: 40px;
       background: none;
