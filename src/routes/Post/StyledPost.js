@@ -81,6 +81,7 @@ const StyledPost = styled.section`
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       width: 100%;
+      field-sizing: content;
     }
 
     .post-btn {
