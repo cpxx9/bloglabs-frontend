@@ -81,13 +81,13 @@ const StyledPost = styled.section`
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       width: 100%;
+      min-height: 110px;
       resize: none;
       field-sizing: content;
     }
 
     .post-btn {
       width: 100%;
-      min-height: 90px;
       border: 2px solid gray;
       border-radius: 40px;
       background: none;
