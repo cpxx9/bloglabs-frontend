@@ -1,8 +1,8 @@
-# React + Vite
+# BlogLabs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Blog site that I created as one of the final projects for The Odin Project, but decided to build out further into something I can actually use. 
+I wanted to learn more about these technologies rather than just build a project site.
 
-Currently, two official plugins are available:
+It's using React for the front end, NodeJS (Express) for the API, JWTs for authentication and secure routing, and PostgresSQL as the database
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Any tips/ideas are always welcome!
